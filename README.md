@@ -7,3 +7,5 @@ This is the repository to maintain the track of the progress for the 100 days of
 #### 60-80 -> complete LW3 dapps of sophomore track and junior track or build something diferent with smart contract and frontend and learn more about web3 framworks.
 #### 80-90 -> Dive into smart contract security and learn about auditing basics.
 #### 90-99 -> TBD
+
+Day 1 : Getting started with ES6 syntax
