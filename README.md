@@ -18,4 +18,5 @@ This is the repository to maintain the track of the progress for the 100 days of
 
 Day 1 : Getting started with ES6 syntax\
 Day 2 : Understanding promise, fetch() and async/await\
-Day 3 : Starting with a Space Travel frontend project to get a grasp over html and css
+Day 3 : Starting with a Space Travel frontend project to get a grasp over html and css\
+Day 4 : Played around with custom css properties and utility classes\
