@@ -20,3 +20,5 @@ Day 1 : Getting started with ES6 syntax\
 Day 2 : Understanding promise, fetch() and async/await\
 Day 3 : Starting with a Space Travel frontend project to get a grasp over html and css\
 Day 4 : Played around with custom css properties and utility classes\
+Day 5 : CSS is cool if you know what you are doing but shit, if you dont\
+Day 6 : Basic HTML layout for the mini-project and Code-chef January Long\
