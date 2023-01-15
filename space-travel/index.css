@@ -1,14 +1,13 @@
 /* ------------------- */
-/* Reset               */
+/* Custom properties   */
 /* ------------------- */
 
-/* https://piccalil.li/blog/a-modern-css-reset/ */
-
 :root {
-  /* colours */
+  /* colors */
   --clr-dark: 230 35% 7%;
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
+
   /* font-sizes */
   --fs-900: 9.375rem;
   --fs-800: 6.25rem;
@@ -24,6 +23,13 @@
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
 }
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
 /* Box sizing */
 *,
 *::before,
@@ -56,15 +62,24 @@ p {
 
 /* set up the body */
 body {
-  background-color: hsl(var(--clr-dark));
+  font-family: var(--ff-sans-normal);
+  font-size: var(--fs-400);
   color: hsl(var(--clr-white));
+  background: linear-gradient(
+    45deg,
+    hsl(var(--clr-dark)),
+    hsl(var(--clr-dark) / 0.8)
+  );
   line-height: 1.5;
   min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* make images easier to work with */
 img,
-picture {
+picutre {
   max-width: 100%;
   display: block;
 }
@@ -77,9 +92,23 @@ select {
   font: inherit;
 }
 
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ------------------- */
 /* Utility classes     */
 /* ------------------- */
+
+/* general */
 
 .flex {
   display: flex;
@@ -91,20 +120,60 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+
 .container {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
 }
-.box {
-  background: lightblue;
-  padding: 3rem;
+
+.grid-container {
+  border: 5px solid limegreen;
+  display: grid;
+  column-gap: var(--container-gap, 2rem);
+  grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+      2rem,
+      1fr
+    );
 }
-.flow > *:not(:first-child) {
-  margin-top: var(--flow-space, 1rem);
+
+@media (min-width: 45rem) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        2rem,
+        1fr
+      );
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+    outline: 1px solid red;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+    outline: 1px solid yellow;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
 }
 
 /* colors */
+
 .bg-dark {
   background-color: hsl(var(--clr-dark));
 }
@@ -126,6 +195,7 @@ select {
 }
 
 /* typography */
+
 .ff-serif {
   font-family: var(--ff-serif);
 }
@@ -149,14 +219,7 @@ select {
 .uppercase {
   text-transform: uppercase;
 }
-.numbered-title {
-  font-family: var(--ff-sans-cond);
-  text-transform: uppercase;
-  color: var(--clr-white);
-}
-.numbered-title span {
-  margin-right: 1em;
-}
+
 .fs-900 {
   font-size: var(--fs-900);
 }
@@ -188,27 +251,47 @@ select {
 .fs-600 {
   line-height: 1.1;
 }
-/* Components */
+
+.numbered-title {
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-500);
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
+}
+
+.numbered-title span {
+  margin-right: 0.5em;
+  font-weight: 700;
+  color: hsl(var(--clr-white) / 0.25);
+}
+
+/* ------------------- */
+/* Compontents         */
+/* ------------------- */
+
 .large-button {
   position: relative;
+  z-index: 1;
   display: inline-grid;
   place-items: center;
   padding: 0 2em;
   border-radius: 50%;
   aspect-ratio: 1;
   text-decoration: none;
-  z-index: 1;
 }
+
 .large-button::after {
   content: "";
   position: absolute;
+  z-index: -1;
   width: 100%;
   height: 100%;
-  background: hsl(var(--clr-white) / 0.15);
+  background: hsl(var(--clr-white) / 0.1);
   border-radius: 50%;
   opacity: 0;
-  transition: opacity 500ms linear, transform 500ms ease-in-out;
+  transition: opacity 500ms linear, transform 750ms ease-in-out;
 }
+
 .large-button:hover::after,
 .large-button:focus::after {
   opacity: 1;
@@ -216,9 +299,8 @@ select {
 }
 
 .primary-navigation {
-  background: hsl(var(--clr-white) / 0.15);
-  --gap: 8em;
-  --underline-gap: 2em;
+  --gap: 8rem;
+  --underline-gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -229,36 +311,45 @@ select {
 }
 
 .primary-navigation a > span {
-  padding-right: 0.2em;
-  opacity: 50%;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  margin-right: 0.5em;
 }
 
-.underlined-indicator > * {
+.underline-indicators > * {
+  cursor: pointer;
   padding: var(--underline-gap, 1rem) 0;
+  border: 0;
   border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
 }
-.underlined-indicator > .active {
-  border-bottom: 0.2rem solid hsl(var(--clr-white) / 1);
-}
-.underlined-indicator > *:hover,
-.underlined-indicator > *:focus {
-  border-bottom: 0.2rem solid hsl(var(--clr-white) / 0.5);
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+  border-color: hsl(var(--clr-white) / 0.5);
 }
 
-.number-indicator {
-  padding: 0 0.5em;
-  margin: 0;
-  aspect-ratio: 1;
+.underline-indicators > .active,
+.underline-indicators > [aria-selected="true"] {
+  color: hsl(var(--clr-white) / 1);
+  border-color: hsl(var(--clr-white) / 1);
+}
+
+.tab-list {
+  --gap: 2rem;
+}
+
+.dot-indicators > * {
+  cursor: pointer;
+  border: 0;
   border-radius: 50%;
-  background-color: hsl(var(--clr-dark) / 1);
-  border: 0.1rem solid hsl(var(--clr-white) / 0.5);
+  padding: 0.5em;
+  background-color: hsl(var(--clr-white) / 0.25);
 }
-.number-indicator > .active {
-  background-color: hsl(var(--clr-white) / 1);
-}
-.number-indicator > *:hover,
-.number-indicator > *:focus {
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
   background-color: hsl(var(--clr-white) / 0.5);
-  border: 0.2rem solid hsl(var(--clr-white) / 0.5);
+}
+
+.dot-indicators > [aria-selected="true"] {
+  background-color: hsl(var(--clr-white) / 1);
 }
