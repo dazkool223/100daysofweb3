@@ -22,4 +22,5 @@ Day 3 : Starting with a Space Travel frontend project to get a grasp over html a
 Day 4 : Played around with custom css properties and utility classes\
 Day 5 : CSS is cool if you know what you are doing but shit, if you dont\
 Day 6 : Basic HTML layout for the mini-project and Code-chef January Long\
-Day 7 : Getting familiar with grid and flex layouts
+Day 7 : Getting familiar with grid and flex layouts\
+Day 8 : Changed some colours and fonts
