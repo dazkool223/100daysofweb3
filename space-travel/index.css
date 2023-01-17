@@ -4,17 +4,17 @@
 
 :root {
   /* colors */
-  --clr-dark: 250 46% 9%;
+  --clr-dark: 230 35% 7%;
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -22,6 +22,25 @@
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+}
+
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
 }
 
 /* ------------------- */
@@ -65,11 +84,7 @@ body {
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
   color: hsl(var(--clr-white));
-  background-image: linear-gradient(
-    45deg,
-    hsl(var(--clr-dark)),
-    hsl(var(--clr-dark) / 0.8)
-  );
+  background-color: hsl(var(--clr-dark));
   line-height: 1.5;
   min-height: 100vh;
 
@@ -120,6 +135,10 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
@@ -131,19 +150,27 @@ select {
 }
 
 .grid-container {
+  text-align: center;
   display: grid;
-  column-gap: var(--container-gap, 2rem);
-  grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
-      2rem,
-      1fr
-    );
+  place-items: center;
+  padding-inline: 1rem;
 }
 
-@media (min-width: 45rem) {
+.logo {
+  display: inline;
+  justify-content: flex-start;
+  width: 2em;
+}
+.grid-container * {
+  max-width: 50ch;
+}
+
+@media (min-width: 45em) {
   .grid-container {
+    text-align: left;
     column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
-        2rem,
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        1rem,
         1fr
       );
   }
@@ -154,6 +181,11 @@ select {
 
   .grid-container > *:last-child {
     grid-column: 3;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
   }
 }
 
@@ -267,6 +299,7 @@ select {
 /* ------------------- */
 
 .large-button {
+  font-size: 2rem;
   position: relative;
   z-index: 1;
   display: inline-grid;
@@ -295,12 +328,47 @@ select {
   transform: scale(1.5);
 }
 
+.primary-header {
+  margin: 2em 2em;
+  justify-content: flex-end;
+}
 .primary-navigation {
-  --gap: 8rem;
   --underline-gap: 2rem;
+  background: hsl(var(--clr-white) / 0.1);
+  backdrop-filter: blur(2rem);
   list-style: none;
   padding: 0;
   margin: 0;
+}
+.menu-btn {
+  display: none;
+}
+
+@media (max-width: 35rem) {
+  .primary-navigation {
+    --underline-gap: 0.5rem;
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 30%;
+    list-style: none;
+    padding: min(20rem, 15vh) 2rem;
+    margin: 0;
+    flex-direction: column;
+  }
+  .menu-btn {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 2em;
+    top: 2em;
+    background: transparent;
+    background-image: url(./assets/svgs/hamburger-menu.svg);
+    width: 3em;
+    aspect-ratio: 1;
+  }
+  .primary-navigation.underline-indicators > .active {
+    border: 0;
+  }
 }
 
 .primary-navigation a {
@@ -349,4 +417,30 @@ select {
 
 .dot-indicators > [aria-selected="true"] {
   background-color: hsl(var(--clr-white) / 1);
+}
+
+/* ----------------------------- */
+/* Page specific background      */
+/* ----------------------------- */
+body {
+  background-size: cover;
+  background-position: bottom center;
+}
+/* home */
+.home {
+  background-image: url(./assets/pngs/background-earth.jpg);
+  background-blend-mode: lighten;
+}
+
+@media (min-width: 35rem) {
+  .home {
+    background-position: center center;
+    background-image: url(./assets/pngs/background-earth.jpg);
+  }
+}
+
+@media (min-width: 45rem) {
+  .home {
+    background-image: url(./assets/pngs/background-earth.jpg);
+  }
 }

@@ -23,4 +23,5 @@ Day 4 : Played around with custom css properties and utility classes\
 Day 5 : CSS is cool if you know what you are doing but shit, if you dont\
 Day 6 : Basic HTML layout for the mini-project and Code-chef January Long\
 Day 7 : Getting familiar with grid and flex layouts\
-Day 8 : Changed some colours and fonts
+Day 8 : Changed some colours and fonts\
+Day 9 : Added toggle for navigation bar for mobile devices
