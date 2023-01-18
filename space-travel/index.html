@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <title>Space Travel</title>
+    <script src="index.js" defer></script>
   </head>
   <body class="home">
     <!-- <div>
@@ -22,9 +23,13 @@
       />
     </div> -->
     <header class="primary-header flex">
-      <button class="menu-btn">menu</button>
+      <button class="menu-btn"></button>
       <nav>
-        <ul class="primary-navigation underline-indicators flex">
+        <ul
+          id="primary-navigation"
+          data-visible="false"
+          class="primary-navigation underline-indicators flex"
+        >
           <li class="active">
             <a
               class="ff-sans-cond fs-500 letter-spacing-1 uppercase text-white letter-spacing-2"
