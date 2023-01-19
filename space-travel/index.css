@@ -156,11 +156,6 @@ select {
   padding-inline: 1rem;
 }
 
-.logo {
-  display: inline;
-  justify-content: flex-start;
-  width: 2em;
-}
 .grid-container * {
   max-width: 50ch;
 }
@@ -299,7 +294,6 @@ select {
 /* ------------------- */
 
 .large-button {
-  font-size: 2rem;
   position: relative;
   z-index: 1;
   display: inline-grid;
@@ -308,6 +302,11 @@ select {
   border-radius: 50%;
   aspect-ratio: 1;
   text-decoration: none;
+}
+@media (max-width=35rem) {
+  .large-button {
+    padding: 0 0.5em;
+  }
 }
 
 .large-button::after {
@@ -329,15 +328,21 @@ select {
 }
 
 .primary-header {
-  margin: 2em 2em;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: relative;
+  margin: 2em;
+  width: 3em;
+  aspect-ratio: 1;
 }
 .primary-navigation {
-  --underline-gap: 2rem;
   background: hsl(var(--clr-white) / 0.1);
   backdrop-filter: blur(2rem);
+  --underline-gap: 2rem;
   list-style: none;
-  padding: 0;
+  padding-inline: 7rem;
   margin: 0;
 }
 .menu-btn {
@@ -365,7 +370,7 @@ select {
     position: absolute;
     z-index: 2000;
     right: 1rem;
-    top: 2rem;
+    top: 2.5rem;
     background: transparent;
     background-image: url(./assets/svgs/hamburger-menu.svg);
     background-position: center;

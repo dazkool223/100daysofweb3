@@ -15,20 +15,17 @@
     <script src="index.js" defer></script>
   </head>
   <body class="home">
-    <!-- <div>
-      <img
-        src="./assets/svgs/space-ship-space-svgrepo-com.svg"
-        alt="main-logo"
-        class="logo"
-      />
-    </div> -->
     <header class="primary-header flex">
+      <div class="logo">
+        <img src="./assets/svgs/logo.svg" alt="main-logo" />
+      </div>
       <button class="menu-btn"></button>
       <nav>
         <ul
           id="primary-navigation"
           data-visible="false"
           class="primary-navigation underline-indicators flex"
+          style="--gap: clamp(0.5em, 7vw, 3em)"
         >
           <li class="active">
             <a
@@ -61,7 +58,7 @@
         </ul>
       </nav>
     </header>
-    <div class="grid-container" style="margin: 10vh">
+    <div class="grid-container">
       <div>
         <h1 class="text-accent uppercase ff-sans-cond letter-spacing-1">
           so you want to go to
@@ -74,14 +71,7 @@
           truly out of this world experience!
         </p>
       </div>
-      <div
-        style="
-          display: flex;
-          align-items: flex-start;
-          justify-content: end;
-          padding: 2em 2em;
-        "
-      >
+      <div>
         <a
           href="#"
           class="large-button uppercase ff-serif bg-white text-dark fs-500"
