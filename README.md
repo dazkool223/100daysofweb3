@@ -27,3 +27,4 @@ Day 8 : Changed some colours and fonts\
 Day 9 : Added toggle for navigation bar for mobile devices p1\
 Day 10 : Added toggle for navigation bar for mobile devices p2\
 Day 11 : Adjustments with the navbar\
+Day 12 : Discovered twitter API and github actions
