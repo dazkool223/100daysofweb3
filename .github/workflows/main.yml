@@ -2,7 +2,7 @@ name: Tweet on push
 
 on:
   push:
-
+    branches : [ master ]
 jobs:
   tweet:
     runs-on: ubuntu-latest
@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set environment variables
       env:
-        MESSAGE: "Hello, this is a tweet from GitHub Actions!"
+        MESSAGE: "Hello, this is a sample tweet from GitHub Actions!"
     - name: tweet
       uses: peter-evans/tweet-action@v2
       with:
