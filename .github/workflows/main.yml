@@ -1,22 +1,16 @@
-name: Tweet on push
-
-on:
-  push:
-    branches : [ master ]
+name: Send a Tweet
+on: [push]
 jobs:
   tweet:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set environment variables
-      env:
-        MESSAGE: "Hello, this is a sample tweet from GitHub Actions!"
-    - name: tweet
-      uses: peter-evans/tweet-action@v2
-      with:
-        args: ${{ env.MESSAGE }}
-      env:
-        TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
-        TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-        TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-        TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+      - uses: actions/checkout@v1
+      - id: log
+        run: echo "::set-env name=POST_COMMIT_MESSAGE::$(git log --no-merges -1 --pretty=%B)"
+      - uses: ethomson/send-tweet-action@v1
+        with:
+          status: "${% raw %}{{ steps.log.output.message }}{% endraw %}"
+          consumer-key: ${% raw %}{{ secrets.TWITTER_CONSUMER_API_KEY }}{% endraw %}
+          consumer-secret: ${% raw %}{{ secrets.TWITTER_CONSUMER_API_SECRET }}{% endraw %}
+          access-token: ${% raw %}{{ secrets.TWITTER_ACCESS_TOKEN }}{% endraw %}
+          access-token-secret: ${% raw %}{{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}{% endraw %}
