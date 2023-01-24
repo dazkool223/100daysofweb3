@@ -1,6 +1,6 @@
 import os
 
-def get(): 
+def get_readme(): 
     with open("README.md", "rb") as file:
         try:
             file.seek(-2, os.SEEK_END)
@@ -12,9 +12,10 @@ def get():
     return last_line
 
 def format():
-    line = get()
+    line = get_readme()
     t1 = "Daily Update Tweet\n"
     t2 = "#100daysofcode #100DaysofCodeLW3 w/ @LearnWeb3DAO"
     tweet = t1 + line + t2
     return tweet
 print(format())
+
