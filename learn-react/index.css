@@ -1,0 +1,7 @@
+.nav {
+  font-size: large;
+  font-weight: 10000;
+  list-style: none;
+  gap: 2em;
+  display: flex;
+}
