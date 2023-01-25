@@ -2,7 +2,7 @@
 
 This is the repository to maintain the track of the progress for the 100 days of web3 development. Temporary roadmap for this would look like this!
 
-#### 01-15 -> Revisting html5 and css3, along with the fundamentals of JS while working with working projects
+#### 01-15 -> Revisting html5 and [css3](https://developer.mozilla.org/en-US/docs/Web/CSS), along with the fundamentals of JS while working with working projects
 
 #### 15-45 -> Learn [ReactJS](https://scrimba.com/learn/learnreact/) and Node/NextJS along with working fullstack web2 projects
 
