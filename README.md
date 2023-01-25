@@ -31,4 +31,5 @@ Day 12 : Discovered twitter API and github actions\
 Day 13 : Auto tweet functionality whenever a git push is executed\
 Day 14 : YML tutorial and python script\
 Day 15 : Starting with learning React. Intro to JSX\
-Day 16 : Introduction to component based structure. React with Vite
+Day 16 : Introduction to component based structure. React with Vite\
+Day 17 : React component rendering
