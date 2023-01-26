@@ -20,10 +20,6 @@
   --ff-sans-normal: "Barlow", sans-serif;
 }
 
-body {
-  background: hsl(var(--clr-dark));
-}
-
 .flex {
   display: flex;
   gap: 1.5em;
@@ -113,27 +109,9 @@ body {
   line-height: 1.1;
 }
 
-.numbered-title {
-  font-family: var(--ff-sans-cond);
-  font-size: var(--fs-500);
-  text-transform: uppercase;
-  letter-spacing: 4.72px;
-}
-
-.numbered-title span {
-  margin-right: 0.5em;
-  font-weight: 700;
-  color: hsl(var(--clr-white) / 0.25);
-}
 /* Components */
 .logo {
-  max-width: 20em;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-.navbar {
-  background-color: hsl(var(--clr-white) / 0.5);
-  backdrop-filter: blur;
+  background-image: url("src/assets/react.svg");
+  background-repeat: no-repeat;
+  aspect-ratio: 1;
 }
