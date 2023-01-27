@@ -110,8 +110,29 @@
 }
 
 /* Components */
+
+.navbar {
+  justify-content: center;
+  padding: 0;
+  place-items: center;
+  height: 5em;
+  width: 100;
+  margin-top: 2.5em;
+  margin: 3em 15em;
+  border-radius: 5em;
+  border-color: black;
+  border-style: outset;
+}
+.navbar-content {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1em, 1px, 4em);
+  padding-left: 0;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
 .logo {
-  background-image: url("src/assets/react.svg");
-  background-repeat: no-repeat;
+  padding: 0.5em 0.5em;
   aspect-ratio: 1;
 }
