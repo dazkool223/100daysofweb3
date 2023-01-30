@@ -4,7 +4,7 @@ This is the repository to maintain the track of the progress for the 100 days of
 
 #### 01-15 -> Revisting html5 and [css3](https://developer.mozilla.org/en-US/docs/Web/CSS), along with the fundamentals of JS while working with working projects
 
-#### 15-45 -> Learn [ReactJS](https://scrimba.com/learn/learnreact/) and Node/NextJS along with working fullstack web2 projects
+#### 15-45 -> Learn [ReactJS](https://scrimba.com/learn/learnreact/) and Node/NextJS along with working fullstack web2 projects [notes](react-notes.md)
 
 #### 45-60 -> Deep dive into solidity and [LW3](https://learnweb3.io/dashboard) tracks [Crypto Zombies](https://cryptozombies.io/) etc. as much Solidity as possible.
 
@@ -36,4 +36,5 @@ Day 17 : React component rendering\
 Day 18 : Scrimba Follow Along\
 Day 19 : Worked on ACM website navbar\
 Day 20 : Intro to react props\
-Day 21 : Created a Travel Journal website using the concepts of props
+Day 21 : Created a [Travel Journal](travel-journal/about.md) website using the concepts of props
+Day 22 : Creating a [Meme Generator](meme-generator/about.md) website to understand concepts of State

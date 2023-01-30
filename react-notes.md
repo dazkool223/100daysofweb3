@@ -21,6 +21,15 @@ You can find the basic syntax understanding [here](./Day%201-2/)
    It makes our code more "self-sustaining" - not requiring
    additional changes whenever the data changes.
 
+### Ternery operator Syntax :
+
+```
+let answer = condition ? "Yes" : "No"
+console.log(answer)
+```
+
+prints out the value of answer as "Yes" if the condition is true and "No" otherwise.
+
 ## JSX
 
 1. Why do we need to `import React from "react"` in our files?\
@@ -60,6 +69,8 @@ const page = (
    larger/greater than the individual pieces.
 
 ## React properties (a.k.a props)
+
+"Props" refers to the properties being passed into a component in order for it to work correctly, similar to how a function receives parameters: "from above." A component receiving props is not allowed to modify those props. (l.e. they are "immutable.")
 
 1. What do props help us accomplish?\
    Make a component more reusable.
@@ -119,6 +130,42 @@ const cards = data.map(item => {
     })
 ```
 
+## State
+
+"State" refers to values that are managed by the component, similar to variables declared inside a function. Any time you have changing values that should be saved/displayed, you'll likely be using state.
+
+1. How would you describe the concept of "state"?\
+   : A way for React to remember saved values from within a component.
+   This is similar to declaring variables from within a component,
+   with a few added bonuses
+
+2. When would you want to use props instead of state?\
+   : Anytime you want to pass data into a component so that
+   component can determine what will get displayed on the
+   screen.
+
+3. When would you want to use state instead of props?\
+   : Anytime you want a component to maintain some values from
+   within the component. (And "remember" those values even
+   when React re-renders the component)
+
+4. Syntax for simple counter using useState() method
+
+```
+import {useState} from "react"
+const [count, setCount] = useState(0)
+```
+
+5. Never use += or -= operator while dealing with state variable. Use the setter function while setting the updated value of the state variable\
+
+6. if you ever need the old value of state to help you determine the new value of state,you should pass a callback function to your state setter function instead of using state directly. This callback function will receive the old value of state as its parameter,which you can then use to determine your new value of state. Directly using state variable is a bad practice in React.
+
+```
+setCount(prevCount = () => prevCount+1)
+```
+
+Pro Tip : Props are immutable. State is mutable.
+
 ## React with Vite
 
 Create Vite app
@@ -134,3 +181,9 @@ cd app
 npm i
 npm run dev
 ```
+
+## Miscellanous
+
+[Adding svg icons to react](https://rb.gy/w9qik5)\
+[Docs for Mouse Events](https://reactjs.org/docs/events.html#mouse-events)
+[Ternery Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
