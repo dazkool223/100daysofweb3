@@ -2,16 +2,26 @@ import { useState } from "react";
 import memesData from "./memesData";
 
 export default function Meme() {
-  const [memeImage, setMemeImage] = useState("");
+  const [meme, setMemeImage] = useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "http://i.imgflip.com/1bij.jpg",
+  });
+  const [allMemeImages, setAllMemeImages] = useState(memesData);
 
-  function getMemeImage() {
-    const memeArray = memesData.data.memes;
+  const getMemeImage = () => {
+    const memeArray = allMemeImages.data.memes;
     const randomNumber = Math.floor(Math.random() * memeArray.length);
-    setMemeImage(memeArray[randomNumber].url);
-  }
+    setMemeImage((prevMeme) => {
+      return {
+        ...prevMeme,
+        randomImage: memeArray[randomNumber].url,
+      };
+    });
+  };
 
   return (
-    <main className="grid meme ff-karla">
+    <main className="meme ff-karla">
       <div className="grid form">
         <input
           type="text"
@@ -31,7 +41,9 @@ export default function Meme() {
           Get a new meme image 🖼
         </button>
       </div>
-      <img src={memeImage} className="meme--image" />
+      <div className="flex meme--image-div">
+        <img src={meme.randomImage} className="meme--image" alt="meme image" />
+      </div>
     </main>
   );
 }

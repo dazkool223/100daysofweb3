@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Meme from "./components/Meme";
 function App() {
   return (
-    <div>
+    <div className="grid">
       <Header />
       <Meme />
     </div>
