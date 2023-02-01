@@ -24,7 +24,7 @@ jobs:
       - name: Run Python script
         run: |
           python tweet.py > tweet_content.txt
-          echo "::set-env name=TWEET_CONTENT::$(cat tweet_content.txt)"
+          echo "::exportVariable name=TWEET_CONTENT::$(cat tweet_content.txt)"
 
       - name: Tweet
         uses: ethomson/send-tweet-action@v1
