@@ -29,7 +29,7 @@ jobs:
       - name: Tweet
         uses: ethomson/send-tweet-action@v1
         with:
-          status: ${{ env.TWEET_CONTENT }}
+          status: "Hi, this tweet is done by github actions on behalf on me"
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
