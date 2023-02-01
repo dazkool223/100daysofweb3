@@ -22,9 +22,7 @@ def get_readme():
 # Print the contents of the README.md file
 def format():
     line = get_readme()
-    t1 = "Daily Update Tweet\n"
-    t2 = "#100daysofcode #100DaysofCodeLW3 w/ @LearnWeb3DAO"
-    tweet = t1 + line + t2
+    tweet = "Daily Update Tweet: {line} #100daysofcode w/ @LearnWeb3DAO #100DaysofCodeLW3".format(line=line)
     return tweet
 print(format())
 
