@@ -36,6 +36,7 @@ Day 17 : React component rendering\
 Day 18 : Scrimba Follow Along\
 Day 19 : Worked on ACM website navbar\
 Day 20 : Intro to react props\
-Day 21 : Created a [Travel Journal](travel-journal/about.md) website using the concepts of props
-Day 22 : Creating a [Meme Generator](meme-generator/about.md) website to understand concepts of State
-Day 23 : Playing around with States and Props. Updating props with states and vice versa.
+Day 21 : Created a [Travel Journal](travel-journal/about.md) website using the concepts of props\
+Day 22 : Creating a [Meme Generator](meme-generator/about.md) website to understand concepts of State\
+Day 23 : Playing around with States and Props. Updating props with states and vice versa.\
+Day 24 : Setup of github actions
