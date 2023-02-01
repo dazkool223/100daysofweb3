@@ -24,11 +24,13 @@ jobs:
       - name: Run Python script
         run: |
           python tweet.py > tweet_content.txt
-          echo "::set-env name=TWEET_CONTENT::$(cat tweet_content.txt)"
+          echo "::exportVariable name=TWEET_CONTENT::$(cat tweet_content.txt)"
 
       - name: Tweet
-        uses: actions/twitter/tweet@v2
-        env:
-          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        uses: ethomson/send-tweet-action@v1
         with:
-          message: ${{ env.TWEET_CONTENT }}
+          status: "Hi, this tweet is done by github actions on behalf on me"
+          consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
+          consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
