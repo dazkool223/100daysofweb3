@@ -39,4 +39,7 @@ Day 20 : Intro to react props\
 Day 21 : Created a [Travel Journal](travel-journal/about.md) website using the concepts of props\
 Day 22 : Creating a [Meme Generator](meme-generator/about.md) website to understand concepts of State\
 Day 23 : Playing around with States and Props. Updating props with states and vice versa.\
-Day 24 : Setup of github actions
+Day 24 : Setup of github actions\
+Day 25 : Playing around with react Forms\
+Day 26 : Working on First DApp in React.
+Day 27 : Done with the [MoodDApp](MoodDApp\about.md)

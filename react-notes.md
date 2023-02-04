@@ -183,6 +183,79 @@ Pro Tip : Props are immutable. State is mutable.
 </div>
 ```
 
+## Forms in React :
+
+1. We can use React States to get the user input in the forms. On any change in input, we can update the states on every key stroke
+
+example :
+
+```
+export default function Form() {
+    const [firstName, setFirstName] = useState("")
+    function handleChange(event) {
+        setFirstName(event.target.value)
+    }
+
+    return (
+        <form>
+            <input
+                type="text"
+                placeholder="First Name"
+                onChange={handleChange}
+            />
+        </form>
+    )
+}
+```
+
+Above Component updates the state `firstName` at every change in keystroke in the input text field\
+
+2. We can even take the whole input in the form of object instead of assigning a new variable for the form.
+   example :
+
+```
+export default function Form() {
+    const [formData, setFormData] = React.useState(
+        {firstName: "", lastName: ""}
+    )
+
+    function handleChange(event) {
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [event.target.name]: event.target.value
+            }
+        })
+    }
+```
+
+here, `[event.target.name]` fixes the syntax error if not used the square brackets. Its a ES6 feature which allows to use the whole value as a string.
+
+3. To [Submit the form](https://scrimba.com/learn/learnreact/forms-in-react-submitting-the-form-coe43436db60b0c21a1cca067) watch the video
+
+4. In a vanilla JS app, at what point in the form submission
+   process do you gather all the data from the filled-out form?\
+   : Right before the form is submitted.
+
+5. In a React app, when do you gather all the data from
+   the filled-out form?\
+   : As the form is being filled out. The data is all held in local state.
+
+6. Which attribute in the form elements (value, name, onChange, etc.)
+   should match the property name being held in state for that input?\
+   : `name` property.
+
+7. What's different about saving the data from a checkbox element
+   vs. other form elements?\
+   : A checkbox uses the `checked` property to determine what should
+   be saved in state. Other form elements use the `value` property instead.
+
+8. How do you watch for a form submit? How can you trigger
+   a form submit?\
+
+- Can watch for the submit with an onSubmit handler on the `form` element.
+- Can trigger the form submit with a button click.
+
 ## React with Vite
 
 Create Vite app
@@ -204,3 +277,4 @@ npm run dev
 [Adding svg icons to react](https://rb.gy/w9qik5)\
 [Docs for Mouse Events](https://reactjs.org/docs/events.html#mouse-events)
 [Ternery Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+[React Forms](https://reactjs.org/docs/forms.html)
