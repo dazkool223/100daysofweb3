@@ -1,9 +1,8 @@
 import { useState } from "react";
 import MoodContractABI from "../MoodContractABI";
 export default function Mood() {
-  const [currentMood, setCurrentMood] = useState({
-    mood: "",
-  });
+  const [currentMood, setCurrentMood] = useState("");
+  const [inputMood, setInputMood] = useState("");
   const MoodContractAddress = "0x13DDdf0312103fCDf03B28ed853386687f8A2bf7";
   const provider = new ethers.providers.Web3Provider(window.ethereum, "goerli");
   let signer;
@@ -22,33 +21,34 @@ export default function Mood() {
   async function getMood() {
     const getMoodPromise = MoodContract.getMood();
     const Mood = await getMoodPromise;
+    setCurrentMood(Mood);
     console.log(Mood);
   }
 
-  // async function setMood(event) {
-  //   const { name, value } = event.target;
-  //   const setMoodPromise = MoodContract.setMood(value);
-  //   await setMoodPromise;
-  //   setCurrentMood((prevCurrentMood) => {
-  //     return {
-  //       mood: setMoodPromise,
-  //     };
-  //   });
-  // }
+  async function setMood(event) {
+    const setMoodPromise = MoodContract.setMood(inputMood);
+    await setMoodPromise;
+  }
   function handleChange(event) {
-    setCurrentMood(event.target.value);
+    setInputMood(event.target.value);
   }
   return (
-    <div>
-      <div className="card">
-        <h1 className="title">Set your mood right!</h1>
-        <p>Here we can set or get the mood:</p>
-        <label htmlFor="mood">Input Mood:</label> <br />
-        <input type="text" name="mood" onChange={handleChange} />
-        <button onClick={getMood}>Get Mood</button>
-        {/* <button onClick={setMood}>Set Mood</button> */}
-        <h2>{currentMood}</h2>
-      </div>
+    <div className="card ff-signika">
+      <h1 className="title">Set your mood right!</h1>
+      <p className="para">Here we can set or get the mood:</p>
+      <input
+        type="text"
+        name="mood"
+        onChange={handleChange}
+        className="form--input"
+      />
+      <button onClick={getMood} className="form--button ff-signika">
+        Get Mood
+      </button>
+      <button onClick={setMood} className="form--button ff-signika">
+        Set Mood
+      </button>
+      <h2>{currentMood}</h2>
     </div>
   );
 }
