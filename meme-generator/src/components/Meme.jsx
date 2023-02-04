@@ -19,7 +19,15 @@ export default function Meme() {
       };
     });
   };
-
+  const handleClick = (event) => {
+    const { name, value } = event.target;
+    setMemeImage((prevMeme) => {
+      return {
+        ...prevMeme,
+        [name]: value,
+      };
+    });
+  };
   return (
     <main className="meme ff-karla">
       <div className="grid form">
@@ -27,12 +35,18 @@ export default function Meme() {
           type="text"
           className="ff-karla form--input"
           placeholder="Top Text"
-        ></input>
+          name="topText"
+          onChange={handleClick}
+          value={meme.topText}
+        />
         <input
           type="text"
           className="ff-karla form--input"
           placeholder="Bottom Text"
-        ></input>
+          name="bottomText"
+          onChange={handleClick}
+          value={meme.bottomText}
+        />
         <button
           type="submit"
           className="ff-karla form--button"
@@ -43,6 +57,8 @@ export default function Meme() {
       </div>
       <div className="flex meme--image-div">
         <img src={meme.randomImage} className="meme--image" alt="meme image" />
+        <h2 className="meme--text top">{meme.topText}</h2>
+        <h2 className="meme--text bottom">{meme.bottomText}</h2>
       </div>
     </main>
   );
