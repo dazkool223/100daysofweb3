@@ -256,6 +256,51 @@ here, `[event.target.name]` fixes the syntax error if not used the square bracke
 - Can watch for the submit with an onSubmit handler on the `form` element.
 - Can trigger the form submit with a button click.
 
+## React useState()
+
+Syntax :
+
+```
+React.useState(()=>{
+   // API call or local storage change or sync in two states
+}, [])
+```
+
+useState() takes first parameter as a callback function. this function will run whenever the component is re-rendered.
+second parameter is called as a dependancy array. it checks for the values of the dependancy array has changed or not. if they are changed the effect will run.
+
+1. What is a "side effect" in React? What are some examples?
+
+- Any code that affects an outside system.
+- local storage, API, websockets, two states to keep in sync
+
+2. What is NOT a "side effect" in React? Examples?
+
+- Anything that React is in charge of.
+- Maintaining state, keeping the UI in sync with the data,
+  render DOM elements
+
+3. When does React run your useEffect function? When does it NOT run
+   the effect function?
+
+- As soon as the component loads (first render)
+- On every re-render of the component (assuming no dependencies array)
+- Will NOT run the effect when the values of the dependencies in the
+  array stay the same between renders
+
+4. How would you explain what the "dependecies array" is?
+
+- Second paramter to the useEffect function
+- A way for React to know whether it should re-run the effect function
+
+useEffect takes a function as its parameter. If that function
+returns something, it needs to be a cleanup function. Otherwise,
+it should return nothing. If we make it an async function, it
+automatically retuns a promise instead of a function or nothing.
+Therefore, if you want to use async operations inside of useEffect,
+you need to define the function separately inside of the callback
+function,
+
 ## React with Vite
 
 Create Vite app
@@ -278,3 +323,4 @@ npm run dev
 [Docs for Mouse Events](https://reactjs.org/docs/events.html#mouse-events)
 [Ternery Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
 [React Forms](https://reactjs.org/docs/forms.html)
+[React useEffect()](https://reactjs.org/docs/hooks-effect.html)
