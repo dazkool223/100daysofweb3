@@ -44,4 +44,8 @@ Day 25 : Playing around with react Forms\
 Day 26 : Working on First DApp in React.\
 Day 27 : Done with the [MoodDApp](MoodDApp/about.md)\
 Day 28 : Introduction to react useState()\
-Day 29 : Explored more about useState.
+Day 29 : Explored more about useState.\
+Day 30 : Started With the Notes app in React\
+Day 31 : Gave codechef February Cook-off\
+Day 32 : Started Exploring about NextJS\
+Day 33 : Learned about page routing in NextJS
