@@ -48,4 +48,11 @@ Day 29 : Explored more about useState.\
 Day 30 : Started With the Notes app in React\
 Day 31 : Gave codechef February Cook-off\
 Day 32 : Started Exploring about NextJS\
-Day 33 : Learned about page routing in NextJS
+Day 33 : Learned about page routing in NextJS\
+Day 34 : Learned about static site generation with NextJS\
+Day 35 : Learned about Dynamic site generation with NextJS\
+Day 36 : Started with [Sophomore](https://learnweb3.io/) track\
+Day 37 : Learned about Gas and Gas Fees\
+Day 38 : Learned about PoW and PoS\
+Day 40 : Learned about some solidity concepts\
+Day 41 : Learner about Advanced Solidity Syntax
