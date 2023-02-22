@@ -56,3 +56,6 @@ Day 37 : Learned about Gas and Gas Fees\
 Day 38 : Learned about PoW and PoS\
 Day 40 : Learned about some solidity concepts\
 Day 41 : Learner about Advanced Solidity Syntax
+Day 42 : Cryptozombies lesson 1 of Solidity
+Day 43 : Almost completed Cryptozombies lesson 2 of Solidity
+Day 44 : Completed Cryptozombies lesson 2
